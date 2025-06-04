@@ -7,6 +7,10 @@ public class CheckAlphabet {
             throw new  IllegalArgumentException();
         }
 
+        if (word1.isEmpty() || word2.isEmpty()) {
+            throw new  IllegalArgumentException();
+        }
+
        for (char ch : word1.toCharArray()) {
             if  (ch < 'A' || ch > 'Z') {
                 throw new  IllegalArgumentException();
