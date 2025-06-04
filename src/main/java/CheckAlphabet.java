@@ -4,27 +4,39 @@ public class CheckAlphabet {
 
     public void validCheck(String word1, String word2) {
         if (word1 == null || word2 == null) {
-            throw new  IllegalArgumentException();
+            throw new IllegalArgumentException();
         }
 
         if (word1.isEmpty() || word2.isEmpty()) {
-            throw new  IllegalArgumentException();
+            throw new IllegalArgumentException();
         }
 
-       for (char ch : word1.toCharArray()) {
+        updateBigChar result = getUpdateBigChar(word1, word2);
+
+        for (char ch : result.word1().toCharArray()) {
             if  (ch < 'A' || ch > 'Z') {
                 throw new  IllegalArgumentException();
             }
         }
 
-        for (char ch : word2.toCharArray()) {
+        for (char ch : result.word2().toCharArray()) {
             if  (ch < 'A' || ch > 'Z') {
                 throw new  IllegalArgumentException();
             }
         }
     }
 
+    private updateBigChar getUpdateBigChar(String word1, String word2) {
+        word1 = word1.toUpperCase();
+        word2 = word2.toUpperCase();
+        return new updateBigChar(word1, word2);
+    }
+
+    private record updateBigChar(String word1, String word2) {
+    }
+
     public int lengthCheck(String word1, String word2) {
+        validCheck(word1, word2);
         if (isMatched(word1, word2)) {
             return LENGTH_MATCH_MAX_POINT;
         } else if (isDoubleSize(word1, word2)) {
