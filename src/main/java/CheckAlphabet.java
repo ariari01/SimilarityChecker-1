@@ -29,9 +29,8 @@ public class CheckAlphabet {
             return LENGTH_MATCH_MAX_POINT;
         } else if (isDoubleSize(word1, word2)) {
             return DOUBLE_SIZE_ZERO_POINT;
-        } else {
-            return getPartialPoint(word1, word2);
         }
+        return getPartialPoint(word1, word2);
     }
 
     private int getPartialPoint(String word1, String word2) {

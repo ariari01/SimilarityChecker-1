@@ -73,4 +73,16 @@ public class CheckAlphabetTest {
 
         assertEquals(expected, result);
     }
+
+    @Test
+    @DisplayName("부분점수3")
+    void partialScore3() {
+        String word1 = "jsnvoneifc";
+        String word2 = "aasqcja";
+
+        int expected = 34;
+        int result = checkAlphabet.lengthCheck(word1, word2);
+
+        assertEquals(expected, result);
+    }
 }
