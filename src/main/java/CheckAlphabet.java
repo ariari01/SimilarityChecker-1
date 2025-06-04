@@ -6,6 +6,18 @@ public class CheckAlphabet {
         if (word1 == null || word2 == null) {
             throw new  IllegalArgumentException();
         }
+
+       for (char ch : word1.toCharArray()) {
+            if  (ch < 'A' || ch > 'Z') {
+                throw new  IllegalArgumentException();
+            }
+        }
+
+        for (char ch : word2.toCharArray()) {
+            if  (ch < 'A' || ch > 'Z') {
+                throw new  IllegalArgumentException();
+            }
+        }
     }
 
     public int lengthCheck(String word1, String word2) {
