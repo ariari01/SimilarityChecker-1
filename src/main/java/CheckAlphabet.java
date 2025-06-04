@@ -1,5 +1,4 @@
 public class CheckAlphabet {
-
     public static final int LENGTH_MATCH_MAX_POINT = 60;
     public static final int DOUBLE_SIZE_ZERO_POINT = 0;
 
@@ -15,19 +14,16 @@ public class CheckAlphabet {
         } else if (isDoubleSize(word1, word2)) {
             return DOUBLE_SIZE_ZERO_POINT;
         } else {
-            int gab;
-            int shortLength;
-            if (word1.length() > word2.length()) {
-                gab = word1.length() - word2.length();
-                shortLength = word2.length();
-            } else {
-                gab = word2.length() - word1.length();
-                shortLength = word1.length();
-            }
-            double ratio = (double) gab / shortLength;
-            double temp = (1 - ratio) * 60;
-            return (int)temp;
+            return getPartialPoint(word1, word2);
         }
+    }
+
+    private int getPartialPoint(String word1, String word2) {
+        int gab =  Math.abs(word1.length() - word2.length());
+        int shortLength = Math.min(word1.length(), word2.length());
+        double ratio = (double) gab / shortLength;
+        double result = (1 - ratio) * 60;
+        return (int) result;
     }
 
     private boolean isDoubleSize(String word1, String word2) {
