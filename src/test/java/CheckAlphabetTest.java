@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CheckAlphabetTest {
 
@@ -25,13 +24,15 @@ public class CheckAlphabetTest {
            checkAlphabet.validCheck("AVC", "ABC");
         });
     }
-//
-//    @Test
-//    void sameLength() {
-//        String input1 = "ASD";
-//        String input2 = "DSA";
-//
-//
-//
-//    }
+
+    @Test
+    void sameLength() {
+        String word1 = "ASD";
+        String word2 = "DSA";
+
+        int expected = 60;
+        int result = checkAlphabet.lengthCheck(word1, word2);
+
+        assertEquals(expected, result);
+    }
 }

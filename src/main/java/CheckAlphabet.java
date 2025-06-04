@@ -4,4 +4,11 @@ public class CheckAlphabet {
             throw new  IllegalArgumentException();
         }
     }
+
+    public int lengthCheck(String word1, String word2) {
+        if (word1.length() == word2.length()) {
+            return 60;
+        }
+        return 0;
+    }
 }
